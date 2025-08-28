@@ -1,4 +1,6 @@
-﻿namespace Demo
+﻿using Demo.Extension_Method;
+
+namespace Demo
 {
     internal class Program
     {
@@ -49,6 +51,15 @@
 
 			#endregion
 
+			#region Extension Method
+			//int X = 12345;
+			//int ReversedNumber = IntExtensions.Reverse(X);
+			//Console.WriteLine(ReversedNumber); // 54321
+
+			//ReversedNumber = X.Reverse();
+			//Console.WriteLine(ReversedNumber); // 54321
+
+			#endregion
 		}
 	}
 }
