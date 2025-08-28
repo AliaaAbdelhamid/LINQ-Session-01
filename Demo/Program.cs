@@ -230,7 +230,7 @@ namespace Demo
 
 
 			//ArrayList fruits = new()
-		 //   {
+			//   {
 			//  "Mango",
 			//  "Orange",
 			//  null,
@@ -254,6 +254,168 @@ namespace Demo
 			#endregion
 
 			#endregion
+
+			#region Transformation (Projection) Operators [Select , Select Many , Zip]
+
+			#region Select
+
+			//var ProductNames = ProductList?.Select(P => P.ProductName);
+
+			//ProductNames = from P in ProductList
+			//			   select P.ProductName;
+
+			//var Result01 = ProductList?.Select(P => new Product() { ProductID = P.ProductID, ProductName = P.ProductName });
+			//// Rest Of Properties = Null
+
+			//var Result02 = ProductList?.Select(P => new { P.ProductID, ProductName = P.ProductName });
+			//// Object From Anonymous Type
+			////CLR Will Create Class In Runtime and Override To String
+
+
+			//Result02 = from P in ProductList
+			//		   select new
+			//		   {
+			//			   ProductID = P.ProductID,
+			//			   ProductName = P.ProductName
+			//		   };
+
+
+			//var DiscountedList = ProductList?.Where(P => P.UnitsInStock > 0)
+			//								.Select(P => new
+			//								{
+			//									Id = P.ProductID,
+			//									Name = P.ProductName,
+			//									NewPrice = P.UnitPrice - (P.UnitPrice * 0.1M)
+			//								});
+
+			//DiscountedList = from P in ProductList
+			//				 where P.UnitsInStock > 0
+			//				 select new
+			//				 {
+			//					 Id = P.ProductID,
+			//					 Name = P.ProductName,
+			//					 NewPrice = P.UnitPrice - (P.UnitPrice * 0.1M)
+			//				 };
+
+
+			//var Result = ProductList?.Where(P => P.UnitsInStock > 0)
+			//						.Select((P, I) => new
+			//						{
+			//							Serial = I + 1,
+			//							Name = P.ProductName
+			//						});
+
+			//foreach (var Item in Result ?? Enumerable.Empty<object>())
+			//	Console.WriteLine(Item);
+
+			#endregion
+
+			#region Select Many
+
+			//List<string> phrases = ["Route Academy", "Backend .Net Track", "Linq Course"];
+
+			//var query = from phrase in phrases
+			//			from word in phrase.Split(' ')
+			//			select word;
+
+			//query = phrases.SelectMany(P => P.Split(' '));
+
+			//foreach (string s in query)
+			//{
+			//	Console.WriteLine(s);
+			//}
+			//         // Route
+			//         // Academy
+			//         // Backend
+			//         // .Net
+			//         // Track
+			//         // Linq
+			//         // Course
+
+
+			//var CustomerOrders = CustomerList?.SelectMany(C => C.Orders);
+
+			//CustomerOrders = from C in CustomerList
+			//				 from O in C.Orders
+			//				 select O;
+
+
+			//foreach (var CustomerOrder in CustomerOrders)
+			//	Console.WriteLine(CustomerOrder);
+			////// Order Id: 10643, Date: 8/25/1997, Total: 814.50
+			////// Order Id: 10692, Date: 10/3/1997, Total: 878.00
+			////// Order Id: 10702, Date: 10/13/1997, Total: 330.00
+			////// Order Id: 10835, Date: 1/15/1998, Total: 845.80
+
+
+			//var CustomerOrders = CustomerList?.SelectMany(C => C.Orders,
+			//	(Customer, Order) => (Customer.CustomerName, Order.OrderID));
+
+			//CustomerOrders = from C in CustomerList
+			//				 from O in C.Orders
+			//				 select (C.CustomerName, O.OrderID);
+
+			//foreach (var CustomerOrder in CustomerOrders)
+			//	Console.WriteLine(CustomerOrder);
+			////(Ahmed Ali, 10643) 
+			////(Ahmed Ali, 10692) 
+			////(Ahmed Ali, 10702) 
+			////(Ahmed Ali, 10835) 
+			////(Ahmed Ali, 10952) 
+			////(Ahmed Ali, 11011)
+
+
+			//var CustomerOrders02 = CustomerList?.SelectMany((C, Index) => C.Orders
+			//.Select((O, I) => new { CustomerIndex = Index + 1, C.CustomerName, OrderIndex = I + 1, OrderId = O.OrderID }));
+
+
+			//var Result = CustomerList?.SelectMany((C, CI) => C.Orders
+			//.Select((O, OI) => new { CustomerIndex = CI + 1, CustomerName = C.CustomerName, OrderIndex = OI + 1, OrderId = O.OrderID }));
+
+			//foreach (var CustomerOrder in CustomerOrders02 ?? Enumerable.Empty<object>())
+			//	Console.WriteLine(CustomerOrder);
+
+			//// { CustomerIndex = 0, CustomerName = Ahmed Ali, OrderIndex = 0, OrderId = 10643 }
+			//// { CustomerIndex = 0, CustomerName = Ahmed Ali, OrderIndex = 1, OrderId = 10692 }
+			//// { CustomerIndex = 0, CustomerName = Ahmed Ali, OrderIndex = 2, OrderId = 10702 }
+			//// { CustomerIndex = 0, CustomerName = Ahmed Ali, OrderIndex = 3, OrderId = 10835 }
+			//// { CustomerIndex = 0, CustomerName = Ahmed Ali, OrderIndex = 4, OrderId = 10952 }
+			//// { CustomerIndex = 0, CustomerName = Ahmed Ali, OrderIndex = 5, OrderId = 11011 }
+
+
+			#endregion
+
+			#region Zip 
+
+			//List<int> numbers = [1, 2, 3, 4, 5, 6, 7];
+			//char[] letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+			//string[] Words = ["First", "Second", "Third", "Fourth", "Fifth"];
+
+
+			//var Result = numbers.Zip(letters, (N, L) => $"Number {N} is Zipped With Letter {L}");
+
+			//foreach (var item in Result)
+			//	Console.WriteLine(item);
+			//////// Number 1 is Zipped With Letter A
+			//////// Number 2 is Zipped With Letter B
+			//////// Number 3 is Zipped With Letter C
+			//////// Number 4 is Zipped With Letter D
+			//////// Number 5 is Zipped With Letter E
+			//////// Number 6 is Zipped With Letter F
+
+			//var Result02 = numbers.Zip(letters, Words);
+			//foreach (var item in Result02)
+			//	Console.WriteLine(item);
+			//// (1, A, First)
+			//// (2, B, Second)
+			//// (3, C, Third)
+			//// (4, D, Fourth)
+			//// (5, E, Fifth)
+
+			#endregion
+
+			#endregion
+
 
 		}
 	}
