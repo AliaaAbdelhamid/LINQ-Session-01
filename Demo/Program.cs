@@ -416,7 +416,49 @@ namespace Demo
 
 			#endregion
 
+			#region Sorting (Ordering) Operators
 
+			////var Result = CustomerList?.Order();
+			//var Result = CustomerList?.OrderByDescending(C => C.CustomerName);
+
+
+			//Result = from C in (CustomerList ?? Enumerable.Empty<Customer>())
+			//		 orderby C.CustomerName descending
+			//		 select C;
+
+
+			//foreach (var item in Result ?? Enumerable.Empty<object>())
+			//	Console.WriteLine(item);
+
+
+			//var Result = ProductList?.OrderBy(p => p.UnitsInStock).ThenByDescending(P => P.UnitPrice);
+
+			//Result = from p in (ProductList ?? Enumerable.Empty<Product>())
+			//		 orderby p.UnitsInStock, p.UnitPrice descending
+			//		 select p;
+
+
+			//foreach (var item in Result ?? Enumerable.Empty<Product>())
+			//	Console.WriteLine(item);
+
+
+			//var Result01 = ProductList?.Where(C => C.ProductName?.Length < 10).Select(C => C.ProductName).Reverse();
+
+
+			//foreach (var item in Result01 ?? Enumerable.Empty<string>())
+			//	Console.WriteLine(item);
+
+
+
+			//var Result02 = ProductList?.Where(C => C.ProductName?.Length < 10)
+			//							.Select(C => C.ProductName)
+			//							.OrderBy(S => S?.Length);
+
+			//foreach (var item in Result02 ?? Enumerable.Empty<string?>())
+			//	Console.WriteLine(item);
+
+
+			#endregion
 		}
 	}
 }

@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Demo.Data
 {
-	internal class Customer 
+	internal class Customer : IComparable<Customer>
 	{
-	
+		public int CompareTo(Customer? other)
+		{
+			return string.Compare(this.CustomerName , other?.CustomerName , StringComparison.OrdinalIgnoreCase);
+		}
+
 		public string? CustomerID { get; set; }
 		public string? CustomerName { get; set; }
 		public string? Address { get; set; }
@@ -32,5 +36,6 @@ namespace Demo.Data
 		public override string ToString()
 			=> $"{CustomerID}, {CustomerName}, {Address}, {City}, {Region}, {PostalCode}, {Country}, {Phone}, {Fax}";
 
+		
 	}
 }
