@@ -15,7 +15,11 @@ namespace Demo.Data
 		{
 			ProductList = new List<Product>()
 			{
-	           new Product() {ProductID = 1, ProductName = "Chai", Category = "Beverages",
+						new Product02() {ProductID = 1000, ProductName = "Product01",	UnitPrice = 10M, SerialNumber = 12345 },
+						new Product02() {ProductID = 2000, ProductName = "Product02",	UnitPrice = 60M, SerialNumber = 45678 },
+						new Product02() {ProductID = 3000, ProductName = "Product03",	UnitPrice = 100M, SerialNumber = 56541 },
+						new Product02() {ProductID = 4000, ProductName = "Product04",	UnitPrice = 70M, SerialNumber = 96532 },
+			   new Product() {ProductID = 1, ProductName = "Chai", Category = "Beverages",
 					UnitPrice = 18.00M, UnitsInStock = 100},
 				new Product{ ProductID = 2, ProductName = "Chang", Category = "Beverages",
 				UnitPrice = 19.0000M, UnitsInStock = 17 },

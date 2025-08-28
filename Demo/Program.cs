@@ -1,6 +1,7 @@
 ﻿using Demo.AnonymousMethod;
 using Demo.Data;
 using Demo.Extension_Method;
+using System.Collections;
 using static Demo.Data.ListGenerator;
 namespace Demo
 {
@@ -193,6 +194,67 @@ namespace Demo
 
 
 			#endregion
+
+			#region Filtration (Restriction) Operators [Where , TypeOf]
+
+			#region Where 
+			//var Result = ProductList?.Where(P => P.UnitsInStock > 0 && P.UnitPrice > 20.0M);
+
+			//Result = from P in ProductList
+			//		 where P.UnitsInStock > 0 && P.UnitPrice > 20.0M
+			//		 select P;
+
+
+			// Result = ProductList?.Where((P, I) => I < 10 && P.ProductName?.Length <= 10);
+			// //Search in the First 10 Elements only
+			// // Get Products ProductName.Length <= 10 From First 10 Elements
+			// // Indexed Where is Valid Only in Fluent Syntax, Can't Be Written Using Query Expression
+
+			//foreach (var Item in Result ?? Enumerable.Empty<object>())
+			//	Console.WriteLine(Item);
+
+			#endregion
+
+			#region TypeOf 
+
+			//var Result = ProductList?.OfType<Product02>().Where(predicate: P => P.UnitPrice > 10);
+
+			//foreach (var Item in Result ?? Enumerable.Empty<object>())
+			//	Console.WriteLine(Item);
+
+			////ProductID:2000,ProductName:Product02,Category,UnitPrice:60,UnitsInStock:0
+			////ProductID:3000,ProductName:Product03,Category,UnitPrice:100,UnitsInStock:0
+			////ProductID:4000,ProductName:Product04,Category,UnitPrice:70,UnitsInStock:0
+
+
+
+
+			//ArrayList fruits = new()
+		 //   {
+			//  "Mango",
+			//  "Orange",
+			//  null,
+			//  "Apple",
+			//  3.0,
+			//  "Banana",
+			//  "LemoN"
+			//};
+
+			//var Result = fruits.OfType<string>().Where(S => S.Contains('n', StringComparison.OrdinalIgnoreCase));
+
+			//foreach (var fruit in Result)
+			//	Console.WriteLine(fruit);
+			//// Mango
+			//// Orange
+			//// Banana
+			//// LemoN
+
+
+
+			#endregion
+
+			#endregion
+
 		}
 	}
 }

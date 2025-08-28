@@ -19,5 +19,8 @@ namespace Demo.Data
 			=> $"ProductID:{ProductID},ProductName:{ProductName},Category{Category},UnitPrice:{UnitPrice},UnitsInStock:{UnitsInStock}";
 	
 	}
-
+	class Product02: Product
+	{
+		public int SerialNumber { get; set; }
+	}
 }
