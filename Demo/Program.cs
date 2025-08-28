@@ -148,6 +148,37 @@ namespace Demo
 			//	Console.WriteLine(num); // 2 4 6 8 10  
 
 			#endregion
+
+			#region Execution Ways 
+
+			#region Deferred Execution
+			//List<int> Numbers = new List<int>(10) { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+
+			//var EvenNumbers = Numbers.Where(X => X % 2 == 0); // Deferred Execution
+
+			//Numbers.AddRange(11, 12, 13, 14, 15);
+
+			//foreach (int num in EvenNumbers)
+			//	Console.Write($"{num} "); // 2 4 6 8 10 12 14
+
+			#endregion
+
+			#region Immediate Execution
+
+			//List<int> Numbers = new List<int>(10) { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+
+			//var EvenNumbers = Numbers.Where(X => X % 2 == 0).ToList(); // Immediate Execution
+
+			//Numbers.AddRange(11, 12, 13, 14, 15);
+
+			//foreach (int num in EvenNumbers)
+			//	Console.Write($"{num} "); // 2 4 6 8 10
+
+			#endregion
+
+			#endregion
 		}
 	}
 }
