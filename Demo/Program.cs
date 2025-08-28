@@ -1,4 +1,5 @@
-﻿using Demo.Extension_Method;
+﻿using Demo.AnonymousMethod;
+using Demo.Extension_Method;
 
 namespace Demo
 {
@@ -59,6 +60,47 @@ namespace Demo
 			//ReversedNumber = X.Reverse();
 			//Console.WriteLine(ReversedNumber); // 54321
 
+			#endregion
+
+			#region Anonymous Type 
+
+			////Employee employee = new Employee() { Id = 10 , Name = "Ahmed" , Salary = 5000};
+
+			//var employee = new { Id = 10 , Name = "Ahmed" , Salary = 5000};
+			//Console.WriteLine(employee.Salary); // Valid
+
+			//int X = 10;
+			//Console.WriteLine(X.GetType().Name); // Int32
+			//Console.WriteLine(employee.GetType().Name); // <>f__AnonymousType0`3
+
+			////employee.Name = "Mona"; // Invalid 
+			////// Object Created From Anonymous Type Is An Immutable Objects 
+
+			//var emp01 = new {Id = employee.Id , Name = "Mona" ,Salary = employee.Salary}; // Till C# 9
+			//Console.WriteLine(emp01);
+			//Console.WriteLine(emp01.Name); // Mona
+			//Console.WriteLine(emp01.GetType().Name); // <>f__AnonymousType0`3
+
+			//var emp02 = employee with { Name = "Mona" }; // C# 10 Feature 
+			//Console.WriteLine(emp02);
+			//Console.WriteLine(emp02.Name); // Mona
+			//Console.WriteLine(emp02.GetType().Name); // <>f__AnonymousType0`3
+
+			//// The Same Anonymous Type As long As :
+			//// 1. Same Properties Name [Case Sensitive]
+			//// 2. Same Properties Order 
+
+			//var emp03 = new { id = 10, Name = "Ahmed", Salary = 5000 };
+			//Console.WriteLine(emp03);
+			//Console.WriteLine(emp03.GetType().Name); // <>f__AnonymousType1`3
+
+			//var emp04 = new {  Name = "Ahmed", Id = 10, Salary = 5000 };
+			//Console.WriteLine(emp04);
+			//Console.WriteLine(emp04.GetType().Name); // <>f__AnonymousType2`3
+
+			//var emp05 = new { Name = "Ahmed", Id = 10 };
+			//Console.WriteLine(emp05);
+			//Console.WriteLine(emp05.GetType().Name); // <>f__AnonymousType3`2
 			#endregion
 		}
 	}
