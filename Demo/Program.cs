@@ -1,6 +1,7 @@
 ﻿using Demo.AnonymousMethod;
+using Demo.Data;
 using Demo.Extension_Method;
-
+using static Demo.Data.ListGenerator;
 namespace Demo
 {
     internal class Program
@@ -177,6 +178,19 @@ namespace Demo
 			//	Console.Write($"{num} "); // 2 4 6 8 10
 
 			#endregion
+
+			#endregion
+
+			#region Setup Data 
+
+			//Product? product =  ProductList?[0];
+			//Console.WriteLine(product);
+			//// ProductID:1,ProductName:Chai,CategoryBeverages,UnitPrice:18.00,UnitsInStock:100
+
+			//Customer? customer = CustomerList?[0];
+			//Console.WriteLine(customer);
+			//// 212, Ahmed Ali, Obere Str. 57, Berlin, , 12209, Germany, 030-0074321, 030-0076545
+
 
 			#endregion
 		}
