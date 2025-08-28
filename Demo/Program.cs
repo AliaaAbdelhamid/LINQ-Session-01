@@ -142,7 +142,7 @@ namespace Demo
 			//			  where N % 2 == 0
 			//			  select N;
 
-			//#endregion
+			#endregion
 
 			//foreach (int num in EvenNumbers)
 			//	Console.WriteLine(num); // 2 4 6 8 10  
