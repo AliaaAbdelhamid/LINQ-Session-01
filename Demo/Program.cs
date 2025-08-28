@@ -102,6 +102,52 @@ namespace Demo
 			//Console.WriteLine(emp05);
 			//Console.WriteLine(emp05.GetType().Name); // <>f__AnonymousType3`2
 			#endregion
+
+			#region What Is LINQ 
+
+			//List<int> Numbers = new List<int>(10) { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+			//var EvenNumbers = Numbers.Where(X => X % 2 == 0).ToList();
+
+			//foreach (var EvenNumber in EvenNumbers)
+			//	Console.WriteLine(EvenNumber); // 2 4 6 8 10
+
+
+			#endregion
+
+			#region LINQ Syntax 
+
+			//List<int> Numbers = new List<int>(10) { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+
+			#region 1. Fluent Syntax - Method Syntax
+			//// 1.2 Call LinQ Operators As Class Member Method 
+			//var EvenNumbers = Enumerable.Where(Numbers, X => X % 2 == 0);
+
+			//// 1.1 Call LinQ Operators As object Member Method [Extension Method - Recommended]
+			//EvenNumbers = Numbers.Where(X => X % 2 == 0);
+			#endregion
+
+
+			#region 2.Query Syntax
+
+			//// Started With From And Must Ended With "Select" Or "GroupBy"
+
+			///* Select *
+			// * From Numbers N
+			// * Where N % 2 == 0 */
+
+
+			//EvenNumbers = from N in Numbers
+			//			  where N % 2 == 0
+			//			  select N;
+
+			//#endregion
+
+			//foreach (int num in EvenNumbers)
+			//	Console.WriteLine(num); // 2 4 6 8 10  
+
+			#endregion
 		}
 	}
 }
